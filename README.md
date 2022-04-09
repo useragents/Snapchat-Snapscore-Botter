@@ -21,9 +21,10 @@
 3. Download an android emulator like <a href="https://www.bluestacks.com/">BlueStacks</a>, <a href="https://www.memuplay.com/">Memu</a>, <a href="https://www.bignox.com/">Nox</a>, etc
 4. Download the Snapchat app on the emulator and login to your account
 5. Create a shortcut with a list of users that you want to send snaps to
-6. Run the `main.py` script and follow the instructions shown.
+6. Run the `main.py` script and follow the instructions shown. Confused? Watch the tutorial video <a href="https://www.youtube.com/watch?v=-ZVj913gJ_k">here</a>
 
 ### Please note
 
 This script was made for educational purposes, I am not responsible for your actions using this script.
 This script works best when you are not using your PC as it moves your mouse position around the emulator to send snaps.
+Watch the tutorial video <a href="https://www.youtube.com/watch?v=-ZVj913gJ_k">here</a> if you are confused on what to do.
