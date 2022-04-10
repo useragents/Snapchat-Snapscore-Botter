@@ -3,7 +3,7 @@
   
   # Snapchat Snapscore Botter
   
-  Python-based Snapchat score booster using pyautogui. Click <a href="https://github.com/useragents/Snapchat-Snapscore-Botter/issues">here</a> to report bugs.
+  Python-based Snapchat score booster using pyautogui module. Click <a href="https://github.com/useragents/Snapchat-Snapscore-Botter/issues">here</a> to report bugs.
   
   ![image](https://user-images.githubusercontent.com/103281345/162591882-3a211ead-0f10-4ba1-bdcc-8f2186294377.png)
 
