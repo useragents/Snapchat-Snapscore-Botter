@@ -1,6 +1,10 @@
-from colorama import Fore
-import ctypes, pyautogui, keyboard, os, time
-from datetime import datetime
+try:
+       from colorama import Fore
+       import ctypes, pyautogui, keyboard, os, time
+       from datetime import datetime
+except ImportError:
+    input("Error while importing modules. Please install the modules in requirements.txt")
+
 
 ascii_text = """        ___ _ __   __ _ _ __  
        / __| '_ \ / _` | '_ \ 
