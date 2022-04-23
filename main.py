@@ -1,7 +1,7 @@
 try:
-       from colorama import Fore
-       import ctypes, pyautogui, keyboard, os, time
-       from datetime import datetime
+   from colorama import Fore
+   import ctypes, pyautogui, keyboard, os, time
+   from datetime import datetime
 except ImportError:
     input("Error while importing modules. Please install the modules in requirements.txt")
 
