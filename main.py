@@ -15,6 +15,7 @@ class snapchat:
 
     def __init__(self):
         self.sent_snaps = 0
+        self.delay = 0.5
 
     def get_positions(self):
         self.print_console("Move your mouse to the camera button, then press F")
@@ -75,20 +76,20 @@ class snapchat:
         self.update_title(shortcut_users)
         pyautogui.moveTo(self.switch_to_camera)
         pyautogui.click()
-        time.sleep(0.5)
+        time.sleep(self.delay)
         pyautogui.moveTo(self.take_picture)
         for i in range(7):
             pyautogui.click()
-            time.sleep(0.3)
+            time.sleep(self.delay)
         pyautogui.moveTo(self.edit_send)
-        time.sleep(0.5)
+        time.sleep(self.delay)
         pyautogui.click()
         pyautogui.moveTo(self.send_to)
         pyautogui.click()
-        time.sleep(0.5)
+        time.sleep(self.delay)
         pyautogui.moveTo(self.shortcut)
         pyautogui.click()
-        time.sleep(0.5)
+        time.sleep(self.delay)
         pyautogui.moveTo(self.select_all)
         pyautogui.click()
         pyautogui.moveTo(self.send_snap_button)
@@ -102,8 +103,8 @@ class snapchat:
         sent_snaps = self.sent_snaps * shortcut_users
         ctypes.windll.kernel32.SetConsoleTitleW(f"Snapchat Score Botter | Sent Snaps: {sent_snaps} | Elapsed: {elapsed}s | Developed by @useragents on Github")
 
-    def print_console(self, arg):
-        print(f"\n       {Fore.WHITE}[{Fore.RED}Console{Fore.WHITE}] {arg}")
+    def print_console(self, arg, status = "Console"):
+        print(f"\n       {Fore.WHITE}[{Fore.RED}{status}{Fore.WHITE}] {arg}")
     
     def main(self):
         os.system("cls")
@@ -111,7 +112,13 @@ class snapchat:
         print(Fore.RED + ascii_text)
         self.get_positions()
         shortcut_users = int(input(f"\n       {Fore.WHITE}[{Fore.RED}Console{Fore.WHITE}] How many people are in this shortcut: "))
+        self.print_console("Slow PC", "1")
+        self.print_console("Fast PC", "2")
+        options = int(input(f"\n       {Fore.WHITE}[{Fore.RED}Console{Fore.WHITE}] Option: "))
+        if options == 1:
+            self.delay = 2
         self.print_console("Go to your chats, then press F when you're ready.")
+         
         while True:
             if keyboard.is_pressed("F"):
                 break
