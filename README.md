@@ -4,7 +4,7 @@
   # Snapchat Snapscore Botter
   
 <h1>
-🌟 Join my Discord server <a href="https://discord.gg/rDGsC2rwVv">here</a> 🌟
+🌟 Join my Discord server <a href="https://discord.gg/NrnKpUYjWR">here</a> 🌟
 </h1>
   
   Python-based Snapchat score booster using pyautogui module. Click <a href="https://github.com/useragents/Snapchat-Snapscore-Botter/issues">here</a> to report bugs.
