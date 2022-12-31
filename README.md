@@ -1,33 +1,46 @@
+
 <br/>
 <div align="center">
+  <a href="https://github.com/useragents/Snapchat-Snapscore-Botter">
+    <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c536.png" alt="Logo" width="120" height="120">
+  </a>
   
-  # Snapchat Snapscore Botter
-<h1><b>‼️ NEW DISCORD SERVER! JOIN <a href="https://discord.gg/KRjZ58MfDD">HERE</a>! ‼️</b></h1>
-  
-  Python-based Snapchat score booster using pyautogui module. Click <a href="https://github.com/useragents/Snapchat-Snapscore-Botter/issues">here</a> to report bugs.
-  
-  ![image](https://user-images.githubusercontent.com/103281345/162591882-3a211ead-0f10-4ba1-bdcc-8f2186294377.png)
+  <h2 align="center">Snapchat Snapscore Booster</h3>
 
-
-  
+  <p align="center">
+    Boost your snapscore for FREE with ease.</b>
+    <br />
+    <br />
+    <a href="https://discord.gg/KRjZ58MfDD">Join New Discord Server</a>
+    ·
+    <a href="https://github.com/useragents/Snapchat-Snapscore-Botter/issues">Report Bugs</a>
+    ·
+    <a href="https://www.youtube.com/watch?v=-ZVj913gJ_k">Video Tutorial</a>
+    
+  </p>
 </div>
 
---------------------------------------
+---------------------------------------
 
-### Usage
+  ![image](https://user-images.githubusercontent.com/103281345/162591882-3a211ead-0f10-4ba1-bdcc-8f2186294377.png)
 
-#### Windows:
+---------------------------------------
 
-1. Download ZIP <a href="https://github.com/useragents/Snapchat-Snapscore-Botter/archive/refs/heads/main.zip">here</a> and extract the ZIP
-2. Install <a href="https://github.com/useragents/Snapchat-Snapscore-Botter/blob/main/requirements.txt">requirements.txt</a> by typing `pip install -r requirements.txt` in Command Prompt
-3. Download an android emulator like <a href="https://www.bluestacks.com/">BlueStacks</a>, <a href="https://www.memuplay.com/">Memu</a>, <a href="https://www.bignox.com/">Nox</a>, etc
-4. Download the Snapchat app on the emulator and login to your account
-5. Create a shortcut with a list of users that you want to send snaps to
-6. Run the `main.py` script and follow the instructions shown. Confused? Watch the tutorial video <a href="https://www.youtube.com/watch?v=-ZVj913gJ_k">here</a>
+### How to use
 
-#### Linux:
+`For Windows Users`
+1. Install Python from <a href="https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe">here</a>. It is super important that checkbox `Add Python to PATH` is checked on setup.
+2. After Python is installed, you need to install the required modules that are used for this script. 
+3. Open the file called `Install Requirements.bat`. This will do everything for you with no issues, simple.
+4. You will need to install an android emulator. I recommend <a href="https://www.bignox.com/">NoxPlayer</a>.
+5. Download Snapchat on the android emulator and login.
+6. On Snapchat app, make a shortcut with people you want to send snaps to.
+7. Run the `main.py` script with Python. Follow the instructions
+8. If you are confused, watch the YouTube video tutorial <a href="https://www.youtube.com/watch?v=-ZVj913gJ_k">here</a>
 
-From your terminal:
+`For Linux Users`
+
+From your terminal (You will need to install Git, google it):
 
 1. `git clone https://github.com/useragents/Snapchat-Snapscore-Botter`
 2. `cd Snapchat-Snapscore-Botter`
@@ -37,8 +50,14 @@ From your terminal:
 6. Create a shortcut in Snapchat with a list of users that you want to send snaps to
 7. Run `sudo python main.py` and follow the instructions shown.
 
-### Please note
+---------------------------------------
+### Please note: Important
+1. This script works best if you leave your PC idle/AFK.
+2. This script was made for educational purposes
+3. I am not responsible for your actions
 
-This script was made for educational purposes, I am not responsible for your actions using this script.
-This script works best when you are not using your PC as it moves your mouse position around the emulator to send snaps.
-Watch the tutorial video <a href="https://www.youtube.com/watch?v=-ZVj913gJ_k">here</a> if you are confused on what to do.
+---------------------------------------
+### Main Issues & Problems
+
+* Struggling to install Python or PIP? Watch this video <a href="https://youtu.be/dYfKJMPNMDw?t=52">here</a>. 
+* Join our Discord for more help.
