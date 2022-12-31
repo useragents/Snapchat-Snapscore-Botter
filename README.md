@@ -16,6 +16,7 @@
 
 ### Usage
 
+#### Windows:
 
 1. Download ZIP <a href="https://github.com/useragents/Snapchat-Snapscore-Botter/archive/refs/heads/main.zip">here</a> and extract the ZIP
 2. Install <a href="https://github.com/useragents/Snapchat-Snapscore-Botter/blob/main/requirements.txt">requirements.txt</a> by typing `pip install -r requirements.txt` in Command Prompt
@@ -23,6 +24,18 @@
 4. Download the Snapchat app on the emulator and login to your account
 5. Create a shortcut with a list of users that you want to send snaps to
 6. Run the `main.py` script and follow the instructions shown. Confused? Watch the tutorial video <a href="https://www.youtube.com/watch?v=-ZVj913gJ_k">here</a>
+
+#### Linux:
+
+From your terminal:
+
+1. `git clone https://github.com/useragents/Snapchat-Snapscore-Botter`
+2. `cd Snapchat-Snapscore-Botter`
+3. `pip install -r requirements.txt`
+4. Install <a href="https://github.com/Genymobile/scrcpy">scrcpy</a> (Allows for you to control your Android device over ADB on USB or WiFi)
+5. Set up scrcpy and run
+6. Create a shortcut in Snapchat with a list of users that you want to send snaps to
+7. Run `sudo python main.py` and follow the instructions shown.
 
 ### Please note
 
