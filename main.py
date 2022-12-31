@@ -22,7 +22,7 @@ class snapchat:
 
     def __init__(self):
         self.sent_snaps = 0
-        self.delay = 0.9
+        self.delay = 1.3
 
     def get_positions(self):
         self.print_console("Move your mouse to the camera button, then press F")
