@@ -34,7 +34,7 @@ This program only works with Snapchat Web.
 
 1. Install Python from <a href="https://www.python.org/ftp/python/3.9.2/python-3.9.2-amd64.exe">here</a>. It is super important that checkbox `Add Python to PATH` is checked on setup.
 2. After Python is installed, you need to install the required modules that are used for this script. 
-3. Open the file called `Install Requirements.bat`. This will do everything for you with no issues, simple.
+3. Open the file called `Install_Requirements.bat`. This will do everything for you with no issues, simple.
    
 1. On your phone, open Snapchat, create a shortcut with as many people as possible to spam snaps to.
 2. Download Snapchat Web on a Computer
