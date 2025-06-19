@@ -1,162 +1,218 @@
-try:
-   from colorama import Fore
-   import ctypes, pyautogui, keyboard, os, time, platform
-   from datetime import datetime
-except ImportError:
-    input("Error while importing modules. Please install the modules in requirements.txt")
+#import sys, platform ,os,pyautogui,keyboard, time
+#from colorama import Fore, init
 
 
-ascii_text = """        ___ _ __   __ _ _ __  
-       / __| '_ \ / _` | '_ \ 
-       \__ \ | | | (_| | |_) |
-       |___/_| |_|\__,_| .__/    
-                       |_|    """
-                       
-def onLinux():
-    if platform.system() == "Linux":
-        return True
+tutorial_video = "Not Available Yet."
+version = "1.0.1"
+credits = "github.com/useragents"
+
+#This is the delay in seconds for each loop.
+delay = 5
+
+#DISCLAIMER
+#DISCLAIMER
+#DISCLAIMER
+
+"""
+DISCLAIMER:
+
+I, the developer, am not responsible for any consequences resulting from the use or misuse of this script.
+This tool is not affiliated with, endorsed by, or supported by Snapchat Inc. in any way.
+Use of this script may violate Snapchat’s Terms of Service (TOS) and Community Guidelines.
+Using automation tools like this may possibly result in your account being permanently banned or disabled.
+Proceed at your own risk. This script is made for educational purposes.
+
+"""
+a_text = rf"""
+  ____                    ____        _   
+ / ___| _ __   __ _ _ __ | __ )  ___ | |_ 
+ \___ \| '_ \ / _` | '_ \|  _ \ / _ \| __|
+  ___) | | | | (_| | |_) | |_) | (_) | |_  {credits}
+ |____/|_| |_|\__,_| .__/|____/ \___/ \__| v{version}
+                   |_|                    """
+
+
+required_modules = {
+    'colorama': 'from colorama import Fore, init, Style',
+    'ctypes': 'import ctypes',
+    'pyautogui': 'import pyautogui',
+    'keyboard': 'import keyboard',
+    'os': 'import os',
+    'time': 'import time',
+    'platform': 'import platform',
+    'datetime': 'from datetime import datetime',
+    'sys': 'import sys',
+
+}
+missing_modules = []
+
+for module, statement in required_modules.items():
+    try:
+        exec(statement, globals())
+    except ImportError:
+        missing_modules.append(module)
+
+if missing_modules:
+    print("Error. Unable to import one or more required modules")
+    print("Please make sure you open the 'Install_Requirements.bat' file before using this program.")
+    print(f"Or watch the YouTube tutorial: {tutorial_video}")
+    print("\nFor the Python experts, you are missing the following modules:")
+    for mod in missing_modules:
+        print(f" - {mod}")
+    input()
+    sys.exit(1)
+
+
+init(autoreset=True, convert=True)
+
+def clear():
+    if platform.system() == "Windows":
+        os.system("cls")
     else:
-        return False
+        os.system("clear")
 
-class snapchat:
+def title(x):
+    if sys.platform.startswith('win'):
+        import ctypes
+        ctypes.windll.kernel32.SetConsoleTitleW(x)
+    else:
+        # For Linux/macOS terminals supporting ANSI escape codes:
+        sys.stdout.write(f"\33]0;{x}\a")
+        sys.stdout.flush()
+
+def nice_print(x, status = "-"):
+    print(f"{Fore.WHITE}[{Fore.RED}{status}{Fore.WHITE}] {x}")
+
+class snap_bot:
 
     def __init__(self):
         self.sent_snaps = 0
-        self.delay = 1.3
+        self.first_try = True
 
     def get_positions(self):
-        self.print_console("Move your mouse to the camera button, then press F")
+        nice_print("Move your mouse to the Camera button, then press F")
         while True:
             if keyboard.is_pressed("f"):
                 self.switch_to_camera = pyautogui.position()
                 break
         time.sleep(0.5)
-        self.print_console("Move your mouse to the take picture button, then press F")
-        while True:
-            if keyboard.is_pressed("f"):
-                self.take_picture = pyautogui.position()
-                break
-        time.sleep(0.5)
-        self.print_console("Move your mouse to the arrow down button, then press F")
-        while True:
-            if keyboard.is_pressed("f"):
-                self.arrow_down = pyautogui.position()
-                break
-        time.sleep(0.5)
-        self.print_console("Move your mouse to the Multi Snap button, then press F")
-        while True:
-            if keyboard.is_pressed("f"):
-                self.multi_snap = pyautogui.position()
-                break
-        time.sleep(0.5)
-        self.print_console("Move your mouse to the Edit & Send button, then press F")
-        while True:
-            if keyboard.is_pressed("f"):
-                self.edit_send = pyautogui.position()
-                break
-        time.sleep(0.5)
-        self.print_console("Move your mouse to the Send To button, then press F")
+        nice_print("Move your mouse to the Send to button, then press F")
         while True:
             if keyboard.is_pressed("f"):
                 self.send_to = pyautogui.position()
                 break
         time.sleep(0.5)
-        self.print_console("Move your mouse to your shortcut, then press F")
+        nice_print("Move your mouse to your Shortcut button, then press F")
         while True:
             if keyboard.is_pressed("f"):
                 self.shortcut = pyautogui.position()
                 break
         time.sleep(0.5)
-        self.print_console("Move your mouse to select all in shortcut, then press F")
+        nice_print("Move your mouse to the Select All in shortcut button, then press F")
         while True:
             if keyboard.is_pressed("f"):
                 self.select_all = pyautogui.position()
                 break
         time.sleep(0.5)
-        self.print_console("Move your mouse to send snap button, then press F")
-        while True:
-            if keyboard.is_pressed("f"):
-                self.send_snap_button = pyautogui.position()
-                break
-    
-    def send_snap(self, shortcut_users):
-        self.update_title(shortcut_users)
+
+    def send_snap(self, started_time, shortcut_user_count):
+        click_delay = 2
+        self.update_title(started_time, shortcut_user_count)
         pyautogui.moveTo(self.switch_to_camera)
-        pyautogui.click()
-        time.sleep(self.delay)
-        pyautogui.moveTo(self.take_picture)
-        for i in range(7):
-            pyautogui.click()
-            time.sleep(self.delay)
-        pyautogui.moveTo(self.edit_send)
-        time.sleep(self.delay)
-        pyautogui.click()
+        if self.first_try:
+            pyautogui.click() #Activates the snap feature, only need to do this once.
+            self.first_try = False
+        time.sleep(click_delay)
+        pyautogui.click() #Takes the snap.
+        time.sleep(click_delay)
         pyautogui.moveTo(self.send_to)
         pyautogui.click()
-        time.sleep(self.delay)
+        time.sleep(click_delay)
         pyautogui.moveTo(self.shortcut)
         pyautogui.click()
-        time.sleep(self.delay)
+        time.sleep(click_delay)
         pyautogui.moveTo(self.select_all)
         pyautogui.click()
-        pyautogui.moveTo(self.send_snap_button)
+        time.sleep(click_delay)
+        pyautogui.moveTo(self.send_to) #Same position.
         pyautogui.click()
-        self.sent_snaps += 7
-        self.update_title(shortcut_users)
+        self.sent_snaps += 1
+        self.update_title(started_time, shortcut_user_count)
     
-    def update_title(self, shortcut_users):
+    def update_title(self, started_time, shortcut_user_count):
+
         now = time.time()
-        elapsed = str(now - self.started_time).split(".")[0]
-        sent_snaps = self.sent_snaps * shortcut_users
-        if onLinux() == False:
-            ctypes.windll.kernel32.SetConsoleTitleW(f"Snapchat Score Botter | Sent Snaps: {sent_snaps} | Elapsed: {elapsed}s | Developed by @useragents on Github")
+        elapsed = str(now - started_time).split(".")[0]
+        new_snaps = self.sent_snaps * shortcut_user_count
+        title(f"Snapchat Snapscore Bot v{version} | Sent: {new_snaps} | Elapsed: {elapsed}s | {credits}")
 
-    def print_console(self, arg, status = "Console"):
-        print(f"\n       {Fore.WHITE}[{Fore.RED}{status}{Fore.WHITE}] {arg}")
-    
-    def main(self):
-        if onLinux() == False:
-            os.system("cls")
-            ctypes.windll.kernel32.SetConsoleTitleW("Snapchat Score Botter | Developed by @useragents on Github")
-        else:
-            os.system("clear")
+        clear()
+        print(Fore.RED + a_text)
+        nice_print("Snaps Sent", new_snaps)
 
-        print(Fore.RED + ascii_text)
-
-        self.get_positions()
-
-        # Sometimes ran into "ValueError: invalid literal for int() with base 10: 'fffffffff2'"
-        # There should be a better solution for this but I am not a python dev - Chopper1337
-        while True:
-            try:
-                shortcut_users = int(input(f"\n       {Fore.WHITE}[{Fore.RED}Console{Fore.WHITE}] How many people are in this shortcut: "))
-                break
-            except ValueError:
-                print(f"\n       {Fore.WHITE}[{Fore.RED}Console{Fore.WHITE}] There was an error with that input, please try again :) ")
-
-        self.print_console("Slow PC", "1")
-        self.print_console("Fast PC", "2")
-        options = int(input(f"\n       {Fore.WHITE}[{Fore.RED}Console{Fore.WHITE}] Option: "))
-        if options == 1:
-            self.delay = 2
-        self.print_console("Go to your chats, then press F when you're ready.")
-         
+def main():
+    clear()
+    title(f"Snapchat Snapscore Bot v{version} | {credits}")
+    print(Fore.RED + a_text)
+    nice_print("Start", "1")
+    nice_print("Help and Instructions", "2")
+    nice_print("Disclaimer", "3")
+    try:
+        option = int(input(f"\n{Fore.RED}> {Fore.WHITE}"))
+    except ValueError:
+        return main()
+    if option == 1:
+        try:
+            shortcut_user_count = int(input(f"\n{Fore.WHITE}[{Fore.RED}-{Fore.WHITE}] How many people are in your shortcut: "))
+        except ValueError:
+            return main()
+        
+        
+        obj = snap_bot()
+        print()
+        obj.get_positions()
+        print()
+        nice_print("Positions are saved. Go back to the beginning, Press F when you are ready.")
         while True:
             if keyboard.is_pressed("f"):
                 break
-        if onLinux() == False:
-            os.system("cls")
-        else:
-            os.system("clear")
-        print(Fore.RED + ascii_text)
-        self.print_console("Sending snaps...")
-        self.started_time = time.time()
+        clear()
+        print(Fore.RED + a_text)
+        nice_print("Sending snaps...")
+        started_time = time.time()
         while True:
-            if keyboard.is_pressed("F4"):
-                break
-            self.send_snap(shortcut_users)
-            time.sleep(4)
-        self.print_console(f"Finished sending {self.sent_snaps} snaps.")
+            obj.send_snap(started_time, shortcut_user_count)
+            time.sleep(delay)
+    elif option == 2:
+        print()
+        nice_print("This program only works with Snapchat Web.", "-")
+        nice_print(f"There is a YouTube tutorial video you can watch for help: {tutorial_video}", "-")
+        print()
+        nice_print("Instructions:", "-")
+        nice_print("On your phone, open Snapchat, create a shortcut with as many people as possible to spam snaps to.", "1")
+        nice_print("Download Snapchat Web on a Computer", "2")
+        nice_print("Login and allow permissions to your Camera/Microphone/etc", "3")
+        nice_print("If you don't have a camera, download OBS Studio and get a virtual camera.", "4")
+        nice_print("You may need to restart PC if you only downloaded a virtual camera just now.", "5")
+        nice_print("Open this program and select the Start option and begin.", "6")
+        input()
+        return main()
+    elif option == 3:
+        print()
+        nice_print("DISCLAIMER:", "!")
+        nice_print("I, the developer, am not responsible for any consequences resulting from the use or misuse of this script.", "-")
+        nice_print("This tool is not affiliated with, endorsed by, or supported by Snapchat Inc. in any way.", "-")
+        nice_print("Use of this script may violate Snapchat’s Terms of Service (TOS) and Community Guidelines.", "-")
+        nice_print("Using automation tools like this may possibly result in your account being permanently banned or disabled.", "-")
+        nice_print("Proceed at your own risk. This script is made for educational purposes.", "-")
+        input()
+        return main()
+    else:
+        return main()
 
-obj = snapchat()
-obj.main()
+
+        
+
+
+if __name__ == "__main__":
+    main()
