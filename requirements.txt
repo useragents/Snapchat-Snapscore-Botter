@@ -1,3 +1,4 @@
 colorama
 pyautogui
 keyboard
+requests
