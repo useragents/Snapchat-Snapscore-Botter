@@ -3,11 +3,18 @@
 
 
 tutorial_video = "Not Available Yet."
-version = "1.0.1"
+version = "1.0.2"
 credits = "github.com/useragents"
 
-#This is the delay in seconds for each loop.
-delay = 5
+#CUSTOMIZE SETTINGS:
+
+loop_delay = 5     #This is how many seconds it waits before starting a new loop.
+click_delay = 1.2  #This is how many seconds it waits before clicking the mouse between each button. For example it clicks Send To, waits X seconds, then clicks your Shortcut, etc.
+
+
+position_delay = 0.5 #I would recommend do not touch this. Does not affect the speed of the bot itself.
+
+
 
 #DISCLAIMER
 #DISCLAIMER
@@ -42,6 +49,7 @@ required_modules = {
     'platform': 'import platform',
     'datetime': 'from datetime import datetime',
     'sys': 'import sys',
+    'requests': 'import requests'
 
 }
 missing_modules = []
@@ -71,6 +79,24 @@ def clear():
     else:
         os.system("clear")
 
+def check_if_latest_version():
+    s = requests.Session()
+    url = "https://raw.githubusercontent.com/useragents/Snapchat-Snapscore-Botter/refs/heads/main/version.txt"
+    try:
+        r = s.get(url)
+    except:
+        return
+    try:
+        latest_version = r.text.replace("\n", "")
+        if latest_version != version:
+            clear()
+            print(f"Please note before use of this script: There is an updated version available.\n- {credits}\nYour Version: {version}\nLatest Version: {latest_version}\nPress ENTER to go to the main menu.")
+            input()
+    except:
+        return
+
+check_if_latest_version()
+
 def title(x):
     if sys.platform.startswith('win'):
         import ctypes
@@ -95,28 +121,27 @@ class snap_bot:
             if keyboard.is_pressed("f"):
                 self.switch_to_camera = pyautogui.position()
                 break
-        time.sleep(0.5)
+        time.sleep(position_delay)
         nice_print("Move your mouse to the Send to button, then press F")
         while True:
             if keyboard.is_pressed("f"):
                 self.send_to = pyautogui.position()
                 break
-        time.sleep(0.5)
+        time.sleep(position_delay)
         nice_print("Move your mouse to your Shortcut button, then press F")
         while True:
             if keyboard.is_pressed("f"):
                 self.shortcut = pyautogui.position()
                 break
-        time.sleep(0.5)
+        time.sleep(position_delay)
         nice_print("Move your mouse to the Select All in shortcut button, then press F")
         while True:
             if keyboard.is_pressed("f"):
                 self.select_all = pyautogui.position()
                 break
-        time.sleep(0.5)
+        time.sleep(position_delay)
 
     def send_snap(self, started_time, shortcut_user_count):
-        click_delay = 2
         self.update_title(started_time, shortcut_user_count)
         pyautogui.moveTo(self.switch_to_camera)
         if self.first_try:
@@ -182,7 +207,7 @@ def main():
         started_time = time.time()
         while True:
             obj.send_snap(started_time, shortcut_user_count)
-            time.sleep(delay)
+            time.sleep(loop_delay)
     elif option == 2:
         print()
         nice_print("This program only works with Snapchat Web.", "-")
@@ -195,6 +220,7 @@ def main():
         nice_print("If you don't have a camera, download OBS Studio and get a virtual camera.", "4")
         nice_print("You may need to restart PC if you only downloaded a virtual camera just now.", "5")
         nice_print("Open this program and select the Start option and begin.", "6")
+        nice_print("Press ENTER to go back to the main menu.", "-")
         input()
         return main()
     elif option == 3:
@@ -205,6 +231,7 @@ def main():
         nice_print("Use of this script may violate Snapchat’s Terms of Service (TOS) and Community Guidelines.", "-")
         nice_print("Using automation tools like this may possibly result in your account being permanently banned or disabled.", "-")
         nice_print("Proceed at your own risk. This script is made for educational purposes.", "-")
+        nice_print("Press ENTER to go back to the main menu.", "-")
         input()
         return main()
     else:
