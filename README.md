@@ -42,7 +42,7 @@ This program only works with Snapchat Web.
 4. If you don't have a camera, download OBS Studio and get a virtual camera.
 5. You may need to restart PC if you only downloaded a virtual camera just now.
 6. Open the `main.py` script with Python. Select the Start option and begin.
-8. If you are confused, I am creating a YouTube tutorial that will be available soon.
+8. If you are confused, there is a YouTube tutorial video available <a href="https://www.youtube.com/watch?v=hHtRoHRPxag">here</a>. 
 
 ---------------------------------------
 ### Please note: Important
@@ -55,7 +55,7 @@ This program only works with Snapchat Web.
 
 * Struggling to install Python or PIP? Watch this video <a href="https://youtu.be/dYfKJMPNMDw?t=52">here</a>. 
 * Join our Discord <a href="https://discord.gg/KRjZ58MfDD">here</a> for more help.
-
+* If you are confused, there is a YouTube tutorial video available <a href="https://www.youtube.com/watch?v=hHtRoHRPxag">here</a>. 
 ---------------------------------------
 ### DISCLAIMER
 
