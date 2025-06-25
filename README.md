@@ -15,7 +15,7 @@
     ·
     <a href="https://github.com/useragents/Snapchat-Snapscore-Botter/issues">Report Bugs</a>
     ·
-    <a href="https://github.com/useragents/Snapchat-Snapscore-Botter/">Video Tutorial</a>
+    <a href="https://www.youtube.com/watch?v=hHtRoHRPxag">Video Tutorial</a>
     
   </p>
 </div>
