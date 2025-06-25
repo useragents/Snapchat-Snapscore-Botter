@@ -2,8 +2,8 @@
 #from colorama import Fore, init
 
 
-tutorial_video = "Not Available Yet."
-version = "1.0.2"
+tutorial_video = "https://www.youtube.com/watch?v=hHtRoHRPxag"
+version = "1.0.3"
 credits = "github.com/useragents"
 
 #CUSTOMIZE SETTINGS:
@@ -49,7 +49,7 @@ required_modules = {
     'platform': 'import platform',
     'datetime': 'from datetime import datetime',
     'sys': 'import sys',
-    'requests': 'import requests'
+    'requests': 'import requests',
 
 }
 missing_modules = []
