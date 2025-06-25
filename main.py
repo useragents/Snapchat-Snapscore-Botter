@@ -3,7 +3,7 @@
 
 
 tutorial_video = "https://www.youtube.com/watch?v=hHtRoHRPxag"
-version = "1.0.3"
+version = "1.0.4"
 credits = "github.com/useragents"
 
 #CUSTOMIZE SETTINGS:
@@ -88,10 +88,13 @@ def check_if_latest_version():
         return
     try:
         latest_version = r.text.replace("\n", "")
+        test_latest_version = latest_version.replace(".", "")
+        test_current_version = version.replace(".", "")
         if latest_version != version:
-            clear()
-            print(f"Please note before use of this script: There is an updated version available.\n- {credits}\nYour Version: {version}\nLatest Version: {latest_version}\nPress ENTER to go to the main menu.")
-            input()
+            if test_current_version < test_latest_version: #GitHub RAW can take time to update after a commit, so the script might fetch outdated version info—making it wrongly say there's a newer version even when you're already on the latest.
+                clear()
+                print(f"Please note before use of this script: There is an updated version available.\n- {credits}\nYour Version: {version}\nLatest Version: {latest_version}\nPress ENTER to go to the main menu.")
+                input()
     except:
         return
 
